@@ -1,0 +1,48 @@
+<%= form_with(model: sneaker, local: true) do |form| %>
+  <% if sneaker.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(sneaker.errors.count, "error") %> prohibited this sneaker from being saved:</h2>
+
+      <ul>
+      <% sneaker.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% if @brand %>
+    <%= form.hidden_field :brand_id, value: @brand.id %>
+  <% else %>
+    <div class="field">
+      <%= form.label :brand_id %>
+      <%#= form.number_field :brand_id, id: :sneaker_brand_id %>
+      <%= select("sneaker", "brand_id", Brand.all.collect {|b| [ b.name, b.id ] }, { include_blank: true }) %>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :model %>
+    <%= form.text_field :model, id: :sneaker_model %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sex %>
+    <%= form.text_field :sex, id: :sneaker_sex %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.number_field :price, id: :sneaker_price %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
