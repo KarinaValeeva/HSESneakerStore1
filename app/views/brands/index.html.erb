@@ -2,8 +2,8 @@
 
 <!-- <h1>Brands</h1> -->
 
-<table class="table table-hover">
-  <thead class="thead thead-default">
+<table class="table table-striped">
+  <thead>
     <tr>
       <th>Name</th>
       <th>Logo</th>
@@ -16,9 +16,9 @@
       <tr>
         <td><%= brand.name %></td>
         <td><%= image_tag brand.logo, height: 100%></td>
-        <td><%= link_to 'Show', brand %></td>
-        <td><%= link_to 'Edit', edit_brand_path(brand) %></td>
-        <td><%= link_to 'Destroy', brand, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', brand, class:'btn btn-secondary'  %></td>
+        <td><%= link_to 'Edit', edit_brand_path(brand), class:'btn btn-secondary'   %></td>
+        <td><%= link_to 'Destroy', brand, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-secondary'    %></td>
       </tr>
     <% end %>
   </tbody>

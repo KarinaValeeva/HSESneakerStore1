@@ -14,7 +14,7 @@
   <%= image_tag sneaker.image %>
 </div>
 
-<%= link_to 'Edit', edit_sneaker_path(sneaker) %>
-<%= link_to 'Destroy', sneaker, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Edit', edit_sneaker_path(sneaker), class: 'btn btn-secondary' %>
+<%= link_to 'Destroy', sneaker, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-secondary' %>
 
 <hr>
